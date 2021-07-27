@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "a5390613-9a04-4c08-9f25-c4f06ae4463d",
+		"name": "CLAIMS_POC",
+		"description": "CLAIMS_POC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. START CLAIM PROCESS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"variables\": {\n\t\t\"id\": {\n\t\t\t\"value\": \"dw8976ft5dw79y8uddd\",\n\t\t\t\"type\": \"String\"\n\t\t}\n\t},\n\t\"businessKey\": \"dw8976ft5dw79y8uddd\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8077/engine-rest/process-definition/key/CLAIM_PROCESS/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8077",
+					"path": [
+						"engine-rest",
+						"process-definition",
+						"key",
+						"CLAIM_PROCESS",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. SURVEYOR ASSESSMENT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"processVariables\": {\n        \"surveyor_passed\": {\n          \"value\": true,\n          \"type\": \"Boolean\"\n        }\n    },\n    \"businessKey\": \"dw8976ft5dw79y8uddd\",\n    \"resultEnabled\": true,\n    \"messageName\": \"SURVEYOR_ASSESSMENT\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8077/engine-rest/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8077",
+					"path": [
+						"engine-rest",
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. ADJUSTOR ASSESSMENT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"processVariables\": {\n        \"adjustor_passed\": {\n          \"value\": true,\n          \"type\": \"Boolean\"\n        }\n    },\n    \"businessKey\": \"dw8976ft5dw79y8uddd\",\n    \"resultEnabled\": true,\n    \"messageName\": \"ADJUSTOR_ASSESSMENT\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8077/engine-rest/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8077",
+					"path": [
+						"engine-rest",
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. WORKSHOP FINAL UPDATE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"processVariables\": {\n        \"workshop_repair_complete\": {\n          \"value\": true,\n          \"type\": \"Boolean\"\n        }\n    },\n    \"businessKey\": \"dw8976ft5dw79y8uddd\",\n    \"resultEnabled\": true,\n    \"messageName\": \"WORKSHOP_FINAL_UPDATE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8077/engine-rest/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8077",
+					"path": [
+						"engine-rest",
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. CUSTOMER PAYMENT CALLBACK",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"processVariables\": {\n        \"payment_success\": {\n          \"value\": true,\n          \"type\": \"Boolean\"\n        }\n    },\n    \"businessKey\": \"dw8976ft5dw79y8uddd\",\n    \"resultEnabled\": true,\n    \"messageName\": \"CUSTOMER_PAYMENT\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8077/engine-rest/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8077",
+					"path": [
+						"engine-rest",
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. VEHICLE COLLECTED",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"processVariables\": {\n        \"vehicle_collected\": {\n          \"value\": true,\n          \"type\": \"Boolean\"\n        }\n    },\n    \"businessKey\": \"dw8976ft5dw79y8uddd\",\n    \"resultEnabled\": true,\n    \"messageName\": \"VEHICLE_COLLECTED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8077/engine-rest/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8077",
+					"path": [
+						"engine-rest",
+						"message"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
