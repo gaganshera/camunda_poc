@@ -4,10 +4,16 @@
 This POC includes Camunda BPMN file to be deployed on a Camunda server, and a node js script to consume topics/events to and from this deployment.
 Also included is a Postman collection to send messages to Camunda server to "notify" completion of tasks.
 
-Purpose of this illustration is to show a workflow process for insurance claims starting from claim being filed -> surveyor assessment -> adjustor approval -> workshop repair completion -> payment -> Claim success.
+Purpose of this illustration is to show a workflow process for insurance claims starting from *Claim being filed -> Surveyor Assessment -> Adjustor Approval -> Workshop repair completion -> Payment -> Claim success*.
 The actual code for above is mocked. The node.js script will consume topics from Camunda deployment, and Postman collection has APIs to provide events to Camunda server.
 
 ![ClaimProcess](media/claim_process_screenshot.png "Claim Process")
+
+### **Prerequisites**
+- Camunda Modeler application is installed.
+- Camunda server deployed and running on URL http://localhost:8077/
+- Node.js runtime installed.
+- Postman application installed.
 
 ### **Deploy Camunda file**
 _Assuming Camunda server is deployed on URL http://localhost:8077/ . Change subsequent URLs accordingly._
@@ -24,7 +30,7 @@ _Assuming Camunda server is deployed on URL http://localhost:8077/ . Change subs
 - Select file `CLAIMS_POC.postman_collection.json` (in `postman_collection` folder) and import it.
 
 ### **Test flow of workflow**
-After completing the above 3 steps:
+After completing the above steps:
 1. Go to postman collection and run the `START CLAIM PROCESS` API.
     - This will initiate the claims workflow.
 2. Flow will move to the first task: `Notify and assign incident manager, adjustor and surveyor`. This is an external task, the node.js script will receive this topic event and print an output to console signifying processing of this step. It will then mark it as complete.
