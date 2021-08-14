@@ -22,8 +22,8 @@ _Assuming Camunda server is deployed on URL http://localhost:8077/ . Change subs
 - Check process definition deployment on Camunda server http://localhost:8077/camunda/app/cockpit/default/#/processes as `CLAIM_PROCESS`
 
 ### **Run node js app**
-- Run following command to start the nodejs app:
-- `node src/claim_process.js`
+- Install dependencies: `npm install`
+- Run following command to start the nodejs app: `node src/claim_process.js`
 
 ### **Import Postman collection**
 - Go to Postman application and click on Import
